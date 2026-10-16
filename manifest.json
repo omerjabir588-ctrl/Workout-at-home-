@@ -1,0 +1,13 @@
+{
+  "name": "Workout at Home",
+  "short_name": "Workout",
+  "description": "Simple bodyweight workouts you can do at home.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071522",
+  "theme_color": "#071522",
+  "icons": [
+    {"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

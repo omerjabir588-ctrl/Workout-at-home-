@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071522">
+  <meta name="description" content="Workout at Home — simple workouts, no gym, no excuses.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Workout at Home</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Workout at Home home">Workout <span>at Home</span></a>
+      <button class="icon-button" id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
+    </header>
+
+    <main>
+      <section class="screen active" id="home">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">YOUR SPACE. YOUR PACE.</p>
+            <h1>Stronger<br>Every Day.</h1>
+            <p class="muted">Small steps make big results. Get fit from the comfort of home.</p>
+            <button class="primary-btn" id="startFeatured">Start Workout <span>▶</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true"><span>💪</span><small>NO GYM<br>NO EXCUSES</small></div>
+        </div>
+
+        <div class="section-heading"><h2>Categories</h2><span class="muted">Find your focus</span></div>
+        <div class="category-grid">
+          <button class="category-card" data-category="Full Body"><span class="category-icon">🏋️</span><b>Full Body</b><small>All-round strength</small></button>
+          <button class="category-card" data-category="Upper Body"><span class="category-icon">💪</span><b>Upper Body</b><small>Arms, chest & back</small></button>
+          <button class="category-card" data-category="Lower Body"><span class="category-icon">🦵</span><b>Lower Body</b><small>Legs & glutes</small></button>
+          <button class="category-card" data-category="Abs & Core"><span class="category-icon">⚡</span><b>Abs & Core</b><small>Build stability</small></button>
+        </div>
+        <div class="section-heading"><h2>Quick start</h2><span class="muted">No equipment needed</span></div>
+        <button class="workout-row" id="quickWorkout"><span class="workout-thumb">🔥</span><span class="row-copy"><b>7-Minute Starter</b><small>7 min · Beginner · 7 exercises</small></span><span class="arrow">›</span></button>
+      </section>
+
+      <section class="screen" id="workouts">
+        <div class="page-heading"><p class="eyebrow">MOVE WITH PURPOSE</p><h1>Workouts</h1><p class="muted">Choose a session that fits your day.</p></div>
+        <div class="filter-row" id="filters">
+          <button class="filter active" data-filter="All">All</button>
+          <button class="filter" data-filter="Full Body">Full Body</button>
+          <button class="filter" data-filter="Upper Body">Upper Body</button>
+          <button class="filter" data-filter="Lower Body">Lower Body</button>
+          <button class="filter" data-filter="Abs & Core">Abs & Core</button>
+        </div>
+        <div id="workoutList" class="workout-list"></div>
+      </section>
+
+      <section class="screen" id="progress">
+        <div class="page-heading"><p class="eyebrow">EVERY REP COUNTS</p><h1>Your Progress</h1><p class="muted">Consistency is the real superpower.</p></div>
+        <div class="stats-grid">
+          <div class="stat-card"><span>🏆</span><strong id="totalWorkouts">0</strong><small>Workouts done</small></div>
+          <div class="stat-card"><span>⏱️</span><strong id="totalMinutes">0 min</strong><small>Total training</small></div>
+          <div class="stat-card"><span>🔥</span><strong id="streakDays">0</strong><small>Active days</small></div>
+        </div>
+        <div class="panel">
+          <div class="section-heading"><h2>This week</h2><span class="muted">Completed sessions</span></div>
+          <div class="week-bars" id="weekBars"></div>
+        </div>
+        <div class="panel tip-panel"><span class="tip-icon">🌱</span><div><h3>Keep showing up</h3><p class="muted">A short workout today is better than a perfect workout you never start.</p></div></div>
+        <button class="secondary-btn full-width" id="resetProgress">Reset progress</button>
+      </section>
+
+      <section class="screen" id="profile">
+        <div class="page-heading"><p class="eyebrow">YOUR FITNESS SPACE</p><h1>Profile</h1></div>
+        <div class="profile-card"><div class="avatar">🙂</div><div><h2 id="profileName">Home Athlete</h2><p class="muted">Building better habits, one day at a time.</p></div></div>
+        <div class="panel">
+          <button class="setting-row" id="nameBtn"><span>👤</span><span><b>Display name</b><small>Personalize your profile</small></span><span class="arrow">›</span></button>
+          <button class="setting-row" id="reminderBtn"><span>🔔</span><span><b>Daily motivation</b><small id="reminderStatus">Gentle reminders are off</small></span><span class="arrow">›</span></button>
+          <button class="setting-row" id="installBtn"><span>📲</span><span><b>Install app</b><small>Add Workout at Home to your device</small></span><span class="arrow">›</span></button>
+          <button class="setting-row" id="aboutBtn"><span>ℹ️</span><span><b>About</b><small>Made for your at-home fitness journey</small></span><span class="arrow">›</span></button>
+        </div>
+        <p class="fine-print">Your progress is saved on this device. This starter version does not upload personal data to a server.</p>
+      </section>
+
+      <section class="screen" id="session">
+        <button class="back-button" id="backFromSession">← Back to workouts</button>
+        <div class="session-header"><p class="eyebrow">YOU'VE GOT THIS</p><h1 id="sessionTitle">Full Body Workout</h1><p class="muted" id="sessionMeta">Beginner · No equipment</p></div>
+        <div class="timer-card">
+          <div class="timer-ring" id="timerRing"><div><strong id="timerNumber">30</strong><small id="timerUnit">SECONDS</small></div></div>
+          <h2 id="exerciseName">Jumping Jacks</h2><p class="muted" id="exerciseHint">Keep a steady pace and breathe.</p>
+          <div class="progress-track"><div id="exerciseProgress"></div></div>
+          <p class="muted" id="exerciseCount">Exercise 1 of 5</p>
+          <div class="timer-controls">
+            <button class="round-btn" id="prevExercise" aria-label="Previous exercise">‹</button>
+            <button class="play-btn" id="pauseTimer" aria-label="Pause timer">Ⅱ</button>
+            <button class="round-btn" id="nextExercise" aria-label="Next exercise">›</button>
+          </div>
+        </div>
+        <button class="secondary-btn full-width" id="finishWorkout">Finish workout</button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-screen="home"><span>⌂</span><small>Home</small></button>
+      <button class="nav-item" data-screen="workouts"><span>🏃</span><small>Workouts</small></button>
+      <button class="nav-item" data-screen="progress"><span>▥</span><small>Progress</small></button>
+      <button class="nav-item" data-screen="profile"><span>○</span><small>Profile</small></button>
+    </nav>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
